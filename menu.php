@@ -1,7 +1,7 @@
 <nav class="navbar navbar-default">
 	<div class="container-fluid">
 		<ul class="nav navbar-nav">
-			<li class="active"><a href="home.php">Home</a></li>
+			<li class="active"><a href="index.php">Home</a></li>
 			<li><a href="empresa.php">Empresa</a></li>
 			<li><a href="produtos.php">Produtos</a></li>
 			<li><a href="servicos.php">Serviços</a></li>
