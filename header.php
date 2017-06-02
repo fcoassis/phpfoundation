@@ -15,6 +15,7 @@
 	   
 		    <link rel="stylesheet" href="http://cdn.datatables.net/1.10.2/css/jquery.dataTables.min.css"></style>
 			<script type="text/javascript" src="http://cdn.datatables.net/1.10.2/js/jquery.dataTables.min.js"></script>
-			<script src="./assets/bootstrap-3.3.7/dist/js/bootstrap.min.js"></script>			
+			<script src="./assets/bootstrap-3.3.7/dist/js/bootstrap.min.js"></script>		
+			<script src="./ckeditor/ckeditor.js"></script>		
 			</head>	
 			

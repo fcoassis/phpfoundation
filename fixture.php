@@ -3,11 +3,15 @@
 	echo "# Executando fixture #\n";
 	$conn = conexaoDB();
 	
-	echo "Removendo tabela";
+	echo "Removendo tabela \"paginas\"";
 	$conn->query("DROP TABLE IF EXISTS paginas;");
 	echo " - OK\n";
 	
-	echo "Criando tabela";
+	echo "Removendo tabela \"usuarios\"";
+	$conn->query("DROP TABLE IF EXISTS usuarios;");
+	echo " - OK\n";
+	
+	echo "Criando tabela \"paginas\"";
 	$conn->query("CREATE TABLE paginas(
 		id INT NOT NULL AUTO_INCREMENT,
 		pagina VARCHAR(20) NOT NULL,
@@ -16,7 +20,15 @@
 		PRIMARY KEY (id));");
 	echo " - OK\n";
 	
-	echo "Inserindo dados";
+	echo "Criando tabela \"usuarios\"";
+	$conn->query("CREATE TABLE usuarios(
+		id INT NOT NULL AUTO_INCREMENT,
+		nome VARCHAR(10) NOT NULL UNIQUE,
+		senha VARCHAR(100) NOT NULL,
+		PRIMARY KEY (id));");
+	echo " - OK\n";
+	
+	echo "Inserindo dados na tabela paginas";
 	
 	
 	$contarr = [0 =>["pagina"    => "index",
@@ -52,5 +64,18 @@
 	}
 	
 	echo " - OK\n";
+	
+	echo "Inserindo dados na tabela usuarios";
+	
+	$user = "admin";
+	$pass = password_hash("admin", PASSWORD_DEFAULT);
+	
+	$stmt = $conn->prepare("INSERT INTO usuarios (nome,senha) VALUE (:usuario,:senha);");
+		$stmt-> bindParam(":usuario", $user);
+		$stmt-> bindParam(":senha", $pass);
+        $stmt->execute();
+	
+	echo " - OK\n";
+	
 	echo "# Concluído #\n";
 ?>
